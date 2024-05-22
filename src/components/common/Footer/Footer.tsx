@@ -14,7 +14,7 @@ export default function Footer(): React.ReactElement {
 
   return (
     <section className={themeDark ? styles.footer : styles.footerLightTheme}>
-      <p className="text-regular-14">ABOUT REACT SHOP</p>
+      <a href="https://zero-base.co.kr/" className="text-regular-14">제로베이스</a>
       <div className={styles.paymentIcons}>
         <img src={americanExpress} alt="American Express" />
         <img src={dinersClub} alt="Diners Club" />
