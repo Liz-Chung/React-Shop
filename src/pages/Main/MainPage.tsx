@@ -1,7 +1,5 @@
 import styles from './MainPage.module.css';
-
 import React from 'react';
-
 import { useRecoilValue } from 'recoil';
 import { themeDarkState } from '../../stores/recoil/theme';
 import Slider from '../../components/common/Slider';
