@@ -2,7 +2,7 @@ import "./assets/css/tailwind.css";
 import { BrowserRouter } from "react-router-dom";
 import Drawer from "./components/common/Drawer";
 import Router from "./router/router";
-import Nav from "./components/common/Nav";
+import Nav from "./components/common/Nav/Nav";
 import Footer from "./components/common/Footer/Footer";
 
 const App = (): JSX.Element => {
