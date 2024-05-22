@@ -4,15 +4,22 @@ import Error from "../views/Error";
 import Index from "../views/Index";
 import Main from '../pages/Main/MainPage';
 import Product from '../pages/Product/ProductPage';
+import ProductDetail from '../pages/ProductDetail/ProductDetailPage';
+import { Items } from '../stores/recoil/items';
 
-const Router = (): JSX.Element => {
+interface RouterProps {
+  cart: Items[];
+  setCart: React.Dispatch<React.SetStateAction<Items[]>>;
+}
+
+const Router = ({ cart, setCart }: RouterProps): JSX.Element => {
   return (
     <Routes>
       <Route path="*" element={<Error />} />
       <Route path="/" element={<Index />} />
-      <Route path="/" element={<Main />} />
+      <Route path="/main" element={<Main />} />
       <Route path="/products" element={<Product />} />
-      {/* 라우팅 추가 해보세요. */}
+      <Route path="/product/:id" element={<ProductDetail cart={cart} setCart={setCart} />} />
     </Routes>
   );
 };
