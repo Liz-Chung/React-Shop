@@ -1,31 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useRecoilValue, useRecoilValueLoadable } from 'recoil';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import { cartState } from '../../../store/cart';
-import { itemList } from '../../../stores/recoil/items';
-import { themeDarkState } from '../../../stores/recoil/theme';
-import useModal from '../../../Hooks/useModal';
-import SearchModal from '../../../modals/SearchModal';
 import styles from './Nav.module.css';
 
 const Nav = (): JSX.Element => {
   const cart = useRecoilValue(cartState);
   const cartItemCount = Object.values(cart.items || {}).reduce((total, item) => total + item.count, 0);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [input, setInput] = useState('');
-  const themeDark = useRecoilValue(themeDarkState);
-  const itemsLodable = useRecoilValueLoadable(itemList);
-  let items = 'hasValue' === itemsLodable.state ? itemsLodable.contents : [];
-  const navigate = useNavigate();
-  const { isOpen, toggle } = useModal();
-
-  const searched = items.filter((item) =>
-    item.title.toLocaleLowerCase().includes(input.toLocaleLowerCase())
-  );
-
-  useEffect(() => {
-    isOpen ? setIsDarkMode(true) : setIsDarkMode(false);
-  }, [isOpen]);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -61,34 +43,15 @@ const Nav = (): JSX.Element => {
               </span>
             </button>
             <input 
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="검색"
-              className={isDarkMode ? `${styles.input} ${styles.inputDark}` : styles.inputLight}
-              onFocus={toggle}
+              type="text" 
+              placeholder="검색" 
+              className={isDarkMode ? `${styles.input} ${styles.inputDark}` : styles.input}
             />
-            <SearchModal isOpen={isOpen} toggle={toggle}>
-              <ul className={isDarkMode ? styles.searchResults : styles.searchResultsLight}>
-                {input.length > 0 &&
-                  searched.map((item) => (
-                    <li
-                      key={item.id}
-                      onClick={() => {
-                        setInput('');
-                        navigate(`/product/${item.id}`);
-                      }}
-                      className={isDarkMode ? styles.searchItem : styles.searchItemLight}
-                    >
-                      <span className={styles.searchText}>{item.title}</span>
-                    </li>
-                  ))}
-              </ul>
-            </SearchModal>
             <Link to="/cart" className="relative">
-              <span className={isDarkMode ? `${styles.icon} ${styles.iconDark}` : styles.icon}>
+              <span className="material-symbols-outlined h-6 w-6 text-gray-800 dark:text-white">
                 shopping_bag
               </span>
-              <span className={styles.badge}>
+              <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full transform translate-x-1/2 -translate-y-1/2">
                 {cartItemCount}
               </span>
             </Link>
