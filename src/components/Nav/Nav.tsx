@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { cartState } from '../../../store/cart';
+import { cartState } from '../../store/cart';
 import styles from './Nav.module.css';
 
 const Nav = (): JSX.Element => {
