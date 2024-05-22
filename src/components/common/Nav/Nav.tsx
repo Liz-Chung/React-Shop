@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
-import { useRecoilValue } from "recoil";
-import { cartState } from "../../store/cart";
-import { useState } from "react";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { cartState } from '../../../store/cart';
+import styles from './Nav.module.css';
 
 const Nav = (): JSX.Element => {
   const cart = useRecoilValue(cartState);
@@ -14,7 +15,7 @@ const Nav = (): JSX.Element => {
   };
 
   return (
-    <nav className="bg-white dark:bg-gray-800 shadow">
+    <nav className={isDarkMode ? `${styles.nav} ${styles.navDark}` : styles.nav}>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -26,16 +27,16 @@ const Nav = (): JSX.Element => {
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
-                <Link to="/" className="text-gray-800 dark:text-white px-3 py-2 rounded-md text-sm font-medium">패션</Link>
-                <Link to="/products" className="text-gray-800 dark:text-white px-3 py-2 rounded-md text-sm font-medium">액세서리</Link>
-                <Link to="/digital" className="text-gray-800 dark:text-white px-3 py-2 rounded-md text-sm font-medium">Digital</Link>
+                <Link to="/" className={isDarkMode ? `${styles.link} ${styles.linkDark}` : styles.link}>패션</Link>
+                <Link to="/products" className={isDarkMode ? `${styles.link} ${styles.linkDark}` : styles.link}>액세서리</Link>
+                <Link to="/digital" className={isDarkMode ? `${styles.link} ${styles.linkDark}` : styles.link}>Digital</Link>
               </div>
             </div>
           </div>
           <div className="flex items-center space-x-4">
             <button 
               onClick={toggleDarkMode} 
-              className="text-gray-800 dark:text-white px-3 py-2 rounded-md text-sm font-medium"
+              className={isDarkMode ? `${styles.link} ${styles.linkDark}` : styles.link}
             >
               <span className="material-symbols-outlined">
                 {isDarkMode ? 'light_mode' : 'dark_mode'}
@@ -47,10 +48,10 @@ const Nav = (): JSX.Element => {
               className="px-3 py-2 rounded-md border dark:bg-gray-700 dark:border-gray-600"
             />
             <Link to="/cart" className="relative">
-              <span className="material-symbols-outlined h-6 w-6 text-gray-800 dark:text-white">
+              <span className={isDarkMode ? `${styles.icon} ${styles.iconDark}` : styles.icon}>
                 shopping_bag
               </span>
-              <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full transform translate-x-1/2 -translate-y-1/2">
+              <span className={styles.badge}>
                 {cartItemCount}
               </span>
             </Link>
