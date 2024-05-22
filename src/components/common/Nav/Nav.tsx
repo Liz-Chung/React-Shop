@@ -45,7 +45,7 @@ const Nav = (): JSX.Element => {
             <input 
               type="text" 
               placeholder="검색" 
-              className="px-3 py-2 rounded-md border dark:bg-gray-700 dark:border-gray-600"
+              className={isDarkMode ? `${styles.input} ${styles.inputDark}` : styles.input}
             />
             <Link to="/cart" className="relative">
               <span className="material-symbols-outlined h-6 w-6 text-gray-800 dark:text-white">
