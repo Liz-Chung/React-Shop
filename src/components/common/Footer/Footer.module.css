@@ -1,5 +1,5 @@
 .footer,
-.footerLightTheme{
+.footerLightTheme {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,20 +8,36 @@
   padding: 40px;
 }
 
-.footer{
-  color:var(--base-text-color);
-  background-color: rgb(36,41,51);
+.footer {
+  color: var(--base-text-color);
+  background-color: rgb(36, 41, 51);
 }
 
-.footerLightTheme{
+.footerLightTheme {
   background-color: var(--color-gray-200);
-  color:var(--color-black);
+  color: var(--color-black);
 }
 
-.gitICon{
+.gitICon {
   display: block;
   width: 24px;
   height: 24px;
   margin: 20px;
   cursor: pointer;
+}
+
+.paymentIcons {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.paymentIcons img {
+  width: 38px;
+  height: 24px;
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 14px;
 }
