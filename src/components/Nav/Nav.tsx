@@ -3,10 +3,14 @@ import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { cartState } from '../../store/cart';
 import styles from './Nav.module.css';
+import { Items } from '../../stores/recoil/items';
 
-const Nav = (): JSX.Element => {
-  const cart = useRecoilValue(cartState);
-  const cartItemCount = Object.values(cart.items || {}).reduce((total, item) => total + item.count, 0);
+interface NavProps {
+  cart: Items[];
+}
+
+const Nav = ({ cart }: NavProps): JSX.Element => {
+  const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
@@ -45,10 +49,10 @@ const Nav = (): JSX.Element => {
             <input 
               type="text" 
               placeholder="검색" 
-              className={isDarkMode ? `${styles.input} ${styles.inputDark}` : styles.input}
+              className="px-3 py-2 rounded-md border dark:bg-gray-700 dark:border-gray-600"
             />
             <Link to="/cart" className="relative">
-              <span className="material-symbols-outlined h-6 w-6 text-gray-800 dark:text-white">
+              <span className={isDarkMode ? `${styles.icon} ${styles.iconDark}` : styles.icon}>
                 shopping_bag
               </span>
               <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full transform translate-x-1/2 -translate-y-1/2">
