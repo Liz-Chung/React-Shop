@@ -2,12 +2,12 @@ import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { themeDarkState } from '../../stores/recoil/theme';
 import styles from './Footer.module.css';
-import americanExpress from '../../../assets/img/svg/americanExpress.svg';
-import dinersClub from '../../../assets/img/svg/dinersClub.svg';
-import discover from '../../../assets/img/svg/discover.svg';
-import master from '../../../assets/img/svg/master.svg';
-import paypal from '../../../assets/img/svg/paypal.svg';
-import visa from '../../../assets/img/svg/visa.svg';
+import americanExpress from '../../assets/img/svg/americanExpress.svg';
+import dinersClub from '../../assets/img/svg/dinersClub.svg';
+import discover from '../../assets/img/svg/discover.svg';
+import master from '../../assets/img/svg/master.svg';
+import paypal from '../../assets/img/svg/paypal.svg';
+import visa from '../../assets/img/svg/visa.svg';
 
 export default function Footer(): React.ReactElement {
   const themeDark = useRecoilValue(themeDarkState);
