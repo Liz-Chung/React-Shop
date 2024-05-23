@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+}
+
+.navContainer,
+.navContainerLightTheme
+{
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.navContainer{
+  background-color: #24292f;
+  color:var(--color-white);
+  box-shadow: 0 4px 10px 0px rgb(36 41 47 / 20%);
+}
+
+.navContainerLightTheme{
+  background-color: var(--color-gray-200);
+  color:var(--color-black);
+  box-shadow: 0 4px 10px 0px rgb(36 41 47 / 20%);
+}
+
+.nav{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1360px;
+  min-width: 336px;
+}
+
+.titleBox{
+  display: flex;
+  margin-left: 1rem;
+}
+
+.title{
+  display: flex;
+  margin-left: 1rem;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.menu{
+  display: none;
+}
+
+.label{
+  width: 24px;
+  height: 24px;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-sizing: content-box;
+  cursor: pointer;
+}
+
+.category,
+.searchBox{
+  padding-left:0.75rem;
+  padding-right:0.75rem;
+  line-height: 2;
+  cursor: pointer;
+  border-radius: 1rem;
+  transition: background-color .3s;
+}
+
+.category:hover,
+.label:hover{
+  background-color: rgba(74, 83, 95, 0.555);
+}
+
+.category:active,
+.label:active{
+  background-color: rgba(112, 125, 143, 0.555);
+}
+
+.cursor{
+  cursor: pointer;
+}
+
+.flex{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navCategory{
+  display: flex;
+  flex:1 1 0%;
+  transition: ease all .5s;
+}
+
+.changeTheme{
+  appearance: none ;
+}
+
+.swapOff{
+  position: relative;
+}
+
+.cartCount{
+  display: inline-block;
+  position: relative;
+  left: 7px;
+  bottom: 36px;
+  font-size: 12px;
+  padding: 0.2rem 0.7rem;
+  border-radius: 100px;
+  background: #EF4444;
+}
+
+.none{
+  display: block;
+}
+
+@media screen and (max-width: 768px){
+  .navCategory{
+    display: none;
+   }
+ .titleBox{
+  flex: 1 1 0%;
+ }
+}
+
+@media screen and (max-width: 488px){
+  .nav{
+    justify-content: space-between;
+  }
+  .none{
+    display: none;
+  }
+ }

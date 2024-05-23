@@ -1,0 +1,93 @@
+.inputText,
+.inputTextLightTheme{
+  width: 250px;
+  height: 46px;
+  padding:0 16px 0 16px;
+  border: none;
+  border-radius: .5rem;
+  outline: none;
+}
+
+.inputText{
+  background-color: rgb(75 85 99);
+}
+
+.inputTextLightTheme{
+  background-color: var(--color-gray-400);
+  color:var(--color-black);
+}
+
+.serachedContainer,
+.serachedContainerLightTheme{
+  position: absolute;
+  top: 62px;
+  right: calc((100vw - 1308px) / 2);
+  width: 28rem;
+  max-height: 28rem;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  background-color: rgb(75 85 99);
+}
+
+.serachedContainerLightTheme{
+  background-color: var(--color-gray-500);
+}
+
+.searchList,
+.searchListLightTheme{
+  padding:1rem;
+  transition: background-color .3s;
+  cursor: pointer;
+}
+
+.searchListText{
+  text-align: start;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;  
+}
+
+.searchList:hover{
+  background-color: #545D6C;
+}
+
+.searchListLightTheme:hover{
+  background-color: var(--color-gray-300);
+}
+
+.modalOverlay {
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  cursor:auto
+}
+
+@media screen and (max-width: 1400px){
+  .serachedContainer,
+  .serachedContainerLightTheme{
+    position: absolute;
+      top: 62px;
+      right: 44px;
+   }
+}
+
+@media screen and (max-width: 488px){
+ .inputText,
+ .inputTextLightTheme{
+  width: 62px;
+  padding-left: 14px;
+ }
+ .inputText:focus,
+ .inputTextLightTheme:focus{
+  width: 202px;
+  padding-left: 14px;
+  transition: width .3s;
+ }
+}
