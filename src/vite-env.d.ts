@@ -29,7 +29,6 @@ declare module 'components/Product/Product' {
   export default Product;
 }
 
-// src/declarations.d.ts
 declare module '*.module.css' {
   const classes: { [key: string]: string };
   export default classes;
