@@ -5,7 +5,7 @@ import { useRecoilValue } from 'recoil';
 import axios from 'axios';
 import { categories, fakeAPI, Items } from '../../stores/recoil/items';
 import { themeDarkState } from '../../stores/recoil/theme';
-import StarRate from '../../components/Utill/StarRating';
+import Rating from '../../components/common/Rating';
 
 interface CartProps {
   cart: Items[];
@@ -87,7 +87,7 @@ export default function ProductDetailPage(props: CartProps): React.ReactElement 
               <p>{itemInfo.description}</p>
               <div className={styles.ratingContainer}>
                 <div>
-                  <StarRate rate={itemInfo.rating.rate} />
+                  <Rating rate={itemInfo.rating.rate} />
                 </div>
                 <div>
                   {itemInfo.rating.rate} / {itemInfo.rating.count} 참여
