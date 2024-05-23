@@ -13,6 +13,7 @@ export default defineConfig(({ command, mode }) => {
         'components': path.resolve(__dirname, './src/components'),
         'Modals': path.resolve(__dirname, './src/Modals'),
         'stores': path.resolve(__dirname, './src/stores'),
+        'pages': path.resolve(__dirname, './src/pages'),
       },
     },
     server: {
