@@ -1,69 +1,97 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
-import { cartState } from '../../store/cart';
-import styles from './Nav.module.css';
-import { Items } from '../../stores/recoil/items';
+import { useEffect, useLayoutEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { categories, Items } from '../../stores/recoil/items';
+import { themeDarkState } from '../../stores/recoil/theme';
+import SearchProduct from '../SearchProduct/SearchProduct';
+import SideNav from '../SideNav/SideNav';
+import styles from './Header.module.css';
 
-interface NavProps {
+interface PropsType {
   cart: Items[];
 }
 
-const Nav = ({ cart }: NavProps): JSX.Element => {
-  const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+export default function Header(props: PropsType) {
+  const navigate = useNavigate();
+  const [searchToggle, setSearchToggle] = useState<boolean>(false);
+  const [themeDark, setThemeDark] = useRecoilState(themeDarkState);
+  let cartCount = 0;
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark', !isDarkMode);
-  };
+  if (props.cart !== null) {
+    props.cart.forEach((item: Items) => {
+      cartCount += item.quantity;
+    });
+  }
+
+  useLayoutEffect(() => {
+    if (localStorage.getItem('themeDark') === 'true') {
+      setThemeDark(true);
+    } else {
+      setThemeDark(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (themeDark) {
+      localStorage.setItem('themeDark', 'true');
+    } else {
+      localStorage.setItem('themeDark', 'false');
+    }
+  }, [themeDark]);
 
   return (
-    <nav className={isDarkMode ? `${styles.nav} ${styles.navDark}` : styles.nav}>
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-between h-16">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            <label htmlFor="side-menu" className="drawer-overlay"></label>
-          </div>
-          <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex-shrink-0">
-              <Link to="/" className="text-xl font-bold text-gray-800 dark:text-white">React Shop</Link>
-            </div>
-            <div className="hidden sm:block sm:ml-6">
-              <div className="flex space-x-4">
-                <Link to="/" className={isDarkMode ? `${styles.link} ${styles.linkDark}` : styles.link}>패션</Link>
-                <Link to="/products" className={isDarkMode ? `${styles.link} ${styles.linkDark}` : styles.link}>액세서리</Link>
-                <Link to="/digital" className={isDarkMode ? `${styles.link} ${styles.linkDark}` : styles.link}>Digital</Link>
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center space-x-4">
-            <button 
-              onClick={toggleDarkMode} 
-              className={isDarkMode ? `${styles.link} ${styles.linkDark}` : styles.link}
+    <div className={themeDark ? styles.navContainer : styles.navContainerLightTheme}>
+      <div className={styles.nav}>
+        <SideNav />
+        <div
+          className={searchToggle ? `${styles.none} ${styles.titleBox} ` : styles.titleBox}
+          onClick={() => navigate('/')}
+        >
+          <h1 className={styles.title}>React Shop</h1>
+        </div>
+        <div className={`${styles.navCategory} ml`}>
+          {categories.map((category, idx) => {
+            return (
+              <span
+                key={idx}
+                onClick={() => navigate(`/${category.en}`)}
+                className={styles.category}
+              >
+                {category.ko}
+              </span>
+            );
+          })}
+        </div>
+        <div className={styles.flex}>
+          <label
+            onClick={() => setThemeDark(!themeDark)}
+            className={searchToggle ? `${styles.none} ${styles.label} ` : styles.label}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              className={`${styles.swapOff} bi bi-sun`}
+              viewBox="0 0 16 16"
             >
-              <span className="material-symbols-outlined">
-                {isDarkMode ? 'light_mode' : 'dark_mode'}
-              </span>
-            </button>
-            <input 
-              type="text" 
-              placeholder="검색" 
-              className="px-3 py-2 rounded-md border dark:bg-gray-700 dark:border-gray-600"
-            />
-            <Link to="/cart" className="relative">
-              <span className={isDarkMode ? `${styles.icon} ${styles.iconDark}` : styles.icon}>
-                shopping_bag
-              </span>
-              <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full transform translate-x-1/2 -translate-y-1/2">
-                {cartItemCount}
-              </span>
-            </Link>
+              <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+            </svg>
+          </label>
+          <div className={styles.searchBox}>
+            <SearchProduct searchToggle={searchToggle} setSearchToggle={setSearchToggle} />
+          </div>
+          <div className={styles.label} onClick={() => navigate('/cart')}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              className={`${styles.cursor} bi bi-bag`}
+              viewBox="0 0 16 16"
+            >
+              <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+            </svg>
+            {cartCount > 0 && <div className={styles.cartCount}>{cartCount}</div>}
           </div>
         </div>
       </div>
-    </nav>
+    </div>
   );
-};
-
-export default Nav;
+}
