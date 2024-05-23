@@ -4,7 +4,7 @@ import './App.css';
 import ScrollToTop from './components/Utill/ScrollToTop';
 
 import { RecoilRoot } from 'recoil';
-import Nav from './components/Nav/Nav';
+import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { Items } from './stores/recoil/items';
 import MainPage from './pages/Main/MainPage';
@@ -21,7 +21,7 @@ function App(): React.ReactElement {
     <RecoilRoot>
       <BrowserRouter>
         <ScrollToTop />
-        <Nav cart={cart} />
+        <Header cart={cart} />
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/clothing" element={<ProductPage />} />
