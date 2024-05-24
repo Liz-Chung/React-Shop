@@ -116,6 +116,10 @@
   transition: background-color 0.3s;
 }
 
+.label:hover {
+  background-color: rgba(74, 83, 95, 0.555);
+}
+
 .labelDark {
   color: #ffffff;
 }
