@@ -1,25 +1,29 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { themeDarkState } from '../../stores/recoil/theme';
+import americanExpress from '../../../public/images/americanExpress.svg';
+import dinersClub from '../../../public/images/dinersClub.svg';
+import discover from '../../../public/images/discover.svg';
+import master from '../../../public/images/master.svg';
+import paypal from '../../../public/images/paypal.svg';
+import visa from '../../../public/images/visa.svg';
 import styles from './Footer.module.css';
 
 export default function Footer(): React.ReactElement {
-  const gitUrl = 'https://github.com/JHni2';
   const themeDark = useRecoilValue(themeDarkState);
 
   return (
     <section className={themeDark ? styles.footer : styles.footerLightTheme}>
-      <p className="text-regular-14">ABOUT REACT SHOP</p>
-      <div className={styles.gitICon} onClick={() => window.open(gitUrl, '_blank')}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          className="bi bi-github"
-          viewBox="0 0 16 16"
-        >
-          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-        </svg>
+      <a href="https://zero-base.co.kr/" className="text-regular-14">제로베이스</a>
+      <div className={styles.paymentIcons}>
+        <img src={americanExpress} alt="American Express" />
+        <img src={dinersClub} alt="Diners Club" />
+        <img src={discover} alt="Discover" />
+        <img src={master} alt="Mastercard" />
+        <img src={paypal} alt="PayPal" />
+        <img src={visa} alt="Visa" />
       </div>
+      <p className={styles.copyright}>Copyright © 2024 Zero Base</p>
     </section>
   );
 }
