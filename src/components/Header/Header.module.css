@@ -1,10 +1,11 @@
+/* Header.module.css */
+
 * {
   box-sizing: border-box;
 }
 
 .navContainer,
-.navContainerLightTheme
-{
+.navContainerLightTheme {
   padding: 8px;
   display: flex;
   justify-content: center;
@@ -14,19 +15,19 @@
   z-index: 10;
 }
 
-.navContainer{
+.navContainer {
   background-color: #24292f;
-  color:var(--color-white);
+  color: var(--color-white);
   box-shadow: 0 4px 10px 0px rgb(36 41 47 / 20%);
 }
 
-.navContainerLightTheme{
+.navContainerLightTheme {
   background-color: var(--color-gray-200);
-  color:var(--color-black);
+  color: var(--color-black);
   box-shadow: 0 4px 10px 0px rgb(36 41 47 / 20%);
 }
 
-.nav{
+.nav {
   display: flex;
   align-items: center;
   width: 100%;
@@ -34,12 +35,12 @@
   min-width: 336px;
 }
 
-.titleBox{
+.titleBox {
   display: flex;
   margin-left: 1rem;
 }
 
-.title{
+.title {
   display: flex;
   margin-left: 1rem;
   font-size: 18px;
@@ -48,103 +49,39 @@
   white-space: nowrap;
 }
 
-.menu{
+.menu {
   display: none;
 }
 
-.label{
-  width: 24px;
-  height: 24px;
+.label,
+.category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 1rem;
   border-radius: 1rem;
-  box-sizing: content-box;
   cursor: pointer;
-}
-
-.category,
-.searchBox{
-  padding-left:0.75rem;
-  padding-right:0.75rem;
-  line-height: 2;
-  cursor: pointer;
-  border-radius: 1rem;
-  transition: background-color .3s;
-}
-
-.category:hover,
-.label:hover{
-  background-color: rgba(74, 83, 95, 0.555);
-}
-
-.category:active,
-.label:active{
-  background-color: rgba(112, 125, 143, 0.555);
-}
-
-.cursor{
-  cursor: pointer;
-}
-
-.flex{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.navCategory{
-  display: flex;
-  flex:1 1 0%;
-  transition: ease all .5s;
-}
-
-.changeTheme{
-  appearance: none ;
-}
-
-.swapOff{
-  position: relative;
-}
-
-.cartCount{
-  display: inline-block;
-  position: relative;
-  left: 7px;
-  bottom: 36px;
-  font-size: 12px;
-  padding: 0.2rem 0.7rem;
-  border-radius: 100px;
-  background: #EF4444;
-}
-
-.label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: transparent;
   transition: background-color 0.3s;
 }
 
-.label:hover {
+.commonHoverEffect:hover {
   background-color: rgba(74, 83, 95, 0.555);
 }
 
-.labelDark {
-  color: #ffffff;
+.commonHoverEffect:active {
+  background-color: rgba(112, 125, 143, 0.555);
 }
 
-.labelLight {
-  color: #000000;
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.labelDark:hover {
-  background-color: #333333;
-}
-
-.labelLight:hover {
-  background-color: #e0e0e0;
+.navCategory {
+  display: flex;
+  flex: 1 1 0%;
+  transition: ease all 0.5s;
 }
 
 .cartCount {
@@ -155,28 +92,45 @@
   font-size: 12px;
   padding: 0.2rem 0.7rem;
   border-radius: 100px;
-  background: #EF4444;
-  color: white;
+  background: #ef4444;
 }
 
-.none{
+.none {
   display: block;
 }
 
-@media screen and (max-width: 768px){
-  .navCategory{
-    display: none;
-   }
- .titleBox{
-  flex: 1 1 0%;
- }
+.labelDark {
+  color: #ffffff;
 }
 
-@media screen and (max-width: 488px){
-  .nav{
-    justify-content: space-between;
-  }
-  .none{
+.labelLight {
+  color: #000000;
+}
+
+.labelDark:hover,
+.labelLight:hover {
+  background-color: rgba(74, 83, 95, 0.555);
+}
+
+.labelDark:active,
+.labelLight:active {
+  background-color: rgba(112, 125, 143, 0.555);
+}
+
+@media screen and (max-width: 768px) {
+  .navCategory {
     display: none;
   }
- }
+  .titleBox {
+    flex: 1 1 0%;
+  }
+}
+
+@media screen and (max-width: 488px) {
+  .nav {
+    justify-content: space-between;
+  }
+  .none {
+    display: none;
+  }
+}
