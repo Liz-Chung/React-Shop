@@ -1,10 +1,10 @@
-declare module 'Modals/SearchModal' {
+declare module 'modals/SearchModal' {
   import { FC } from 'react';
   const SearchModal: FC<any>;
   export default SearchModal;
 }
 
-declare module 'Modals/BuyModal' {
+declare module 'modals/BuyModal' {
   import { FC } from 'react';
   import { Items } from 'stores/recoil/items';
 
