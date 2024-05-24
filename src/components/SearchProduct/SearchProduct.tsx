@@ -6,7 +6,7 @@ import { useRecoilValue, useRecoilValueLoadable } from 'recoil';
 import { themeDarkState } from '../../stores/recoil/theme';
 import { itemList } from '../../stores/recoil/items';
 import useModal from '../../hooks/useModal';
-import SearchModal from 'modals/SearchModal';
+import SearchModal from '../../Modals/SearchModal';
 
 interface SearchToggleType {
   searchToggle: boolean;

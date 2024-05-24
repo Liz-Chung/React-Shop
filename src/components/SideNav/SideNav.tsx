@@ -2,7 +2,7 @@ import styles from './SideNav.module.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useModal from '../../hooks/useModal';
-import SearchModal from 'modals/SearchModal';
+import SearchModal from '../../Modals/SearchModal';
 import { categories } from '../../stores/recoil/items';
 import { useRecoilValue } from 'recoil';
 import { themeDarkState } from '../../stores/recoil/theme';

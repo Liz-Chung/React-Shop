@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { Items } from '../../stores/recoil/items';
 import { themeDarkState } from '../../stores/recoil/theme';
-import BuyModal from 'modals/BuyModal';
+import BuyModal from '../../Modals/BuyModal';
 
 interface CartProps {
   cart: Items[];
