@@ -18,7 +18,7 @@ declare module 'modals/BuyModal' {
   export default BuyModal;
 }
 
-declare module 'components/Product/Product' {
+declare module 'components/product/Product' {
   import { FC } from 'react';
 
   interface ProductProps {
