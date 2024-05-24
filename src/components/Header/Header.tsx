@@ -65,7 +65,7 @@ export default function Header(props: PropsType) {
         <div className={styles.flex}>
           <button
             onClick={() => setThemeDark(!themeDark)}
-            className={searchToggle ? `${styles.none} ${styles.label} ` : styles.label}
+            className={`${styles.label} ${themeDark ? styles.labelDark : styles.labelLight}`}
           >
             <span className="material-symbols-outlined">
               {themeDark ? 'light_mode' : 'dark_mode'}

@@ -135,6 +135,24 @@
   background-color: rgba(74, 83, 95, 0.555);
 }
 
+.labelDark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.labelLight {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+.labelDark:hover {
+  background-color: #333333;
+}
+
+.labelLight:hover {
+  background-color: #e0e0e0;
+}
+
 .cartCount {
   display: inline-block;
   position: relative;
