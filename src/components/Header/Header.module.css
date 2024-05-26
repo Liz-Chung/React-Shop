@@ -52,32 +52,26 @@
   display: none;
 }
 
-.label{
-  width: 24px;
-  height: 24px;
-  padding: 1rem;
-  border-radius: 1rem;
-  box-sizing: content-box;
-  cursor: pointer;
-}
-
 .category,
-.searchBox{
-  padding-left:0.75rem;
-  padding-right:0.75rem;
+.searchBox,
+.commonHoverEffect {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   line-height: 2;
   cursor: pointer;
   border-radius: 1rem;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
 }
 
+.commonHoverEffect:hover,
 .category:hover,
-.label:hover{
+.label:hover {
   background-color: rgba(74, 83, 95, 0.555);
 }
 
+.commonHoverEffect:active,
 .category:active,
-.label:active{
+.label:active {
   background-color: rgba(112, 125, 143, 0.555);
 }
 
@@ -109,8 +103,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   transition: background-color 0.3s;
 }
@@ -125,14 +119,6 @@
 
 .labelLight {
   color: #000000;
-}
-
-.labelDark:hover {
-  background-color: rgba(112, 125, 143, 0.555);
-}
-
-.labelLight:hover {
-  background-color: rgba(112, 125, 143, 0.555);
 }
 
 .cartCount {
