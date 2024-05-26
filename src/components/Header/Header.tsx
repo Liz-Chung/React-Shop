@@ -65,7 +65,7 @@ export default function Header(props: PropsType) {
         <div className={styles.flex}>
           <button
             onClick={() => setThemeDark(!themeDark)}
-            className={`${styles.label} ${themeDark ? styles.labelDark : styles.labelLight}`}
+            className={`${styles.label} ${styles.commonHoverEffect} ${themeDark ? styles.labelDark : styles.labelLight}`}
           >
             <span className="material-symbols-outlined">
               {themeDark ? 'light_mode' : 'dark_mode'}
@@ -74,7 +74,7 @@ export default function Header(props: PropsType) {
           <div className={styles.searchBox}>
             <SearchProduct searchToggle={searchToggle} setSearchToggle={setSearchToggle} />
           </div>
-          <div className={styles.label} onClick={() => navigate('/cart')}>
+          <div className={`${styles.label} ${styles.commonHoverEffect}`} onClick={() => navigate('/cart')}>
             <span className="material-symbols-outlined">
               shopping_bag
             </span>
