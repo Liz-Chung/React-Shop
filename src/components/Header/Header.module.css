@@ -111,10 +111,9 @@
   justify-content: center;
   width: 24px;
   height: 24px;
-  padding: 1rem;
-  border-radius: 1rem;;
-  box-sizing: content-box;
-  cursor: pointer;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.3s;
 }
 
 .label:hover {
@@ -134,7 +133,7 @@
 }
 
 .labelLight:hover {
-  background-color: rgba(74, 83, 95, 0.555);
+  background-color: rgba(112, 125, 143, 0.555);
 }
 
 .cartCount {
