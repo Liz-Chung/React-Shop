@@ -35,7 +35,7 @@
 }
 
 .itemBoxLightTheme{
-  border: 1px solid var(--color-gray-400);
+  border: 1px solid var(--color-gray-200);
   border-radius: 10px;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .desLightTheme{
-  background-color: var(--color-gray-400);
+  background-color: var(--color-gray-200);
   color:var(--color-black);
 }
 

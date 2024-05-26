@@ -53,7 +53,7 @@ export default function CartPage(props: CartProps): React.ReactElement {
                 <div className={styles.priceBox}>
                   <span className="text-medium-24">총 : ${totalPrice.toLocaleString('ko-KR')}</span>
                   <button className="btn-main" onClick={() => setShowModal(true)}>
-                    모두 구매하기
+                    구매하기
                   </button>
                 </div>
                 {props.cart.map((product: Items) => {
