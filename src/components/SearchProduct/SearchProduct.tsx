@@ -38,7 +38,7 @@ export default function SearchProduct(props: SearchToggleType) {
           setInput(e.target.value);
         }}
         placeholder="검색"
-        className={themeDark ? styles.inputText : styles.inputTextLightTheme}
+        className={themeDark ? styles.inputText : styles.inputTextLightTheme} /* remarks: Ensure the correct class is applied */
         onFocus={toggle}
       />
       <SearchModal isOpen={isOpen} toggle={toggle}>
