@@ -71,7 +71,7 @@ export default function Header(props: PropsType) {
               {themeDark ? 'light_mode' : 'dark_mode'}
             </span>
           </button>
-          <div className={`${styles.searchBox} ${themeDark ? styles.searchBoxDark : styles.searchBoxLight}`}>
+          <div className={styles.searchBox}>
             <SearchProduct searchToggle={searchToggle} setSearchToggle={setSearchToggle} />
           </div>
           <div className={`${styles.label} ${styles.commonHoverEffect}`} onClick={() => navigate('/cart')}>

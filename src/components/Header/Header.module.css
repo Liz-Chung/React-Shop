@@ -79,14 +79,6 @@
   cursor: pointer;
 }
 
-.searchBoxDark {
-  color: #ffffff;
-}
-
-.searchBoxLight {
-  color: #000000;
-}
-
 .label {
   display: flex;
   align-items: center;
@@ -116,6 +108,13 @@
   border-radius: 100px;
   background: #EF4444;
   color: white;
+}
+.searchBoxDark {
+  color: #ffffff;
+}
+
+.searchBoxLight {
+  color: #000000;
 }
 
 .flex{
