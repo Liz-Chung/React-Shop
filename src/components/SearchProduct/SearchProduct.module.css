@@ -10,12 +10,19 @@
 
 .inputText{
   background-color: rgb(75 85 99);
-  color: #ffffff;
+}
+
+.inputText::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .inputTextLightTheme{
   background-color: var(--color-gray-400);
   color:var(--color-black);
+}
+
+.inputTextLightTheme::placeholder {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .serachedContainer,
