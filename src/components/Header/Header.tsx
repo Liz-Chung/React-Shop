@@ -74,10 +74,10 @@ export default function Header(props: PropsType) {
           <div className={styles.searchBox}>
             <SearchProduct searchToggle={searchToggle} setSearchToggle={setSearchToggle} />
           </div>
-          <div className={`${styles.label} ${styles.commonHoverEffect}`} onClick={() => navigate('/cart')}>
-            <svg className="material-symbols-outlined">
+          <div className={`${styles.label} ${styles.commonHoverEffect} ${styles.cartIconWrapper}`} onClick={() => navigate('/cart')}>
+            <span className="material-symbols-outlined">
               shopping_bag
-            </svg>
+            </span>
             {cartCount >= 0 && <div className={styles.cartCount}>{cartCount}</div>}
           </div>
         </div>
