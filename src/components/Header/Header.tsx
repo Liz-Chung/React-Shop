@@ -78,9 +78,7 @@ export default function Header(props: PropsType) {
             <span className="material-symbols-outlined">
               shopping_bag
             </span>
-            <span className={styles.cartCount}>
-              {cartCount >= 0 && <div>{cartCount}</div>}
-            </span>
+            {cartCount >= 0 && <span className={styles.cartCount}>{cartCount}</span>}
           </div>
         </div>
       </div>
