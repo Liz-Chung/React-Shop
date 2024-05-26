@@ -79,24 +79,12 @@
   cursor: pointer;
 }
 
-.flex{
-  display:flex;
-  justify-content: center;
-  align-items: center;
+.searchBoxDark {
+  color: #ffffff;
 }
 
-.navCategory{
-  display: flex;
-  flex:1 1 0%;
-  transition: ease all .5s;
-}
-
-.changeTheme{
-  appearance: none ;
-}
-
-.swapOff{
-  position: relative;
+.searchBoxLight {
+  color: #000000;
 }
 
 .label {
@@ -129,6 +117,27 @@
   background: #EF4444;
   color: white;
 }
+
+.flex{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navCategory{
+  display: flex;
+  flex:1 1 0%;
+  transition: ease all .5s;
+}
+
+.changeTheme{
+  appearance: none ;
+}
+
+.swapOff{
+  position: relative;
+}
+
 
 .none{
   display: block;
