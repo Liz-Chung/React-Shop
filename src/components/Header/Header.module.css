@@ -98,6 +98,10 @@
   color: #000000;
 }
 
+.cartIcon {
+  position: relative;
+}
+
 .cartCount {
   display: inline-block;
   position: absolute;
