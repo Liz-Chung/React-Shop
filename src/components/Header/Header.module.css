@@ -98,21 +98,6 @@
   color: #000000;
 }
 
-.cartIcon {
-  position: relative;
-}
-
-.cartCount {
-  display: inline-block;
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  font-size: 12px;
-  padding: 0.2rem 0.7rem;
-  border-radius: 100px;
-  background: #EF4444;
-  color: white;
-}
 .searchBoxDark {
   color: #ffffff;
 }
@@ -141,6 +126,16 @@
   position: relative;
 }
 
+.cartCount{
+  display: inline-block;
+  position: relative;
+  left: 7px;
+  bottom: 36px;
+  font-size: 12px;
+  padding: 0.2rem 0.7rem;
+  border-radius: 100px;
+  background: #EF4444;
+}
 
 .none{
   display: block;
