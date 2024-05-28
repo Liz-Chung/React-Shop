@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilValue, useRecoilValueLoadable } from 'recoil';
-import products from '../../../public/products.json';
+import { itemList } from '../../stores/recoil/items';
 import { themeDarkState } from '../../stores/recoil/theme';
 import styles from './Product.module.css';
 
@@ -25,7 +25,7 @@ export default function Product(props: Props): React.ReactElement {
   if (currLocation === 'jewelery') category = '악세서리';
   if (currLocation === 'electronics') category = '디지털';
 
-  const itemsLodable = useRecoilValueLoadable(products);
+  const itemsLodable = useRecoilValueLoadable(itemList);
   let items = 'hasValue' === itemsLodable.state ? itemsLodable.contents : [];
 
   return (
@@ -34,8 +34,8 @@ export default function Product(props: Props): React.ReactElement {
       <div className={styles.itemsContainer}>
         <h2 className={styles.itemTitle}>{category}</h2>
         <div className={styles.itemWrapper}>
-          {products.length > 0
-            ? products.map((item) => {
+          {items.length > 0
+            ? items.map((item) => {
                 if (
                   (category === '패션' && item.category.includes('clothing')) ||
                   (category === '악세서리' && item.category.includes('jewelery')) ||
