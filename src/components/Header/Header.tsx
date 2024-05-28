@@ -6,6 +6,7 @@ import { themeDarkState } from '../../stores/recoil/theme';
 import SearchProduct from '../SearchProduct/SearchProduct';
 import SideNav from '../SideNav/SideNav';
 import styles from './Header.module.css';
+import StarRate from '../Utill/StarRating';
 
 interface PropsType {
   cart: Items[];
@@ -82,6 +83,7 @@ export default function Header(props: PropsType) {
           </div>
         </div>
       </div>
+      <StarRate rate={{ rate: 3.5 }} themeDark={themeDark} />
     </div>
   );
 }

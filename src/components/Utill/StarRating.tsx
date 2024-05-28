@@ -4,10 +4,11 @@ interface Rating {
   rate: number;
 }
 
-export default function StarRate(rate: Rating) {
+export default function StarRate({ rate, themeDark }: { rate: Rating, themeDark: boolean }) {
   const AVR_RATE = rate.rate * 20;
   const STAR_IDX_ARR = ['first', 'second', 'third', 'fourth', 'last'];
   const [ratesResArr, setRatesResArr] = useState([0, 0, 0, 0, 0]);
+
   const calcStarRates = () => {
     let tempStarRatesArr = [0, 0, 0, 0, 0];
     let starVerScore = (AVR_RATE * 70) / 100;
@@ -20,9 +21,11 @@ export default function StarRate(rate: Rating) {
     tempStarRatesArr[idx] = starVerScore;
     return tempStarRatesArr;
   };
+
   useEffect(() => {
     setRatesResArr(calcStarRates);
   }, [rate]);
+
   return (
     <section>
       {STAR_IDX_ARR.map((item, idx) => {
@@ -33,7 +36,7 @@ export default function StarRate(rate: Rating) {
               width="24"
               height="24"
               viewBox="0 0 14 13"
-              fill="#544F34"
+              fill={themeDark ? "#FACC15" : "#FFFBEB"}
             >
               <clipPath id={`${item}StarClip`}>
                 <rect width={`${ratesResArr[idx]}`} height="39" />
@@ -46,7 +49,7 @@ export default function StarRate(rate: Rating) {
               <use
                 clipPath={`url(#${item}StarClip)`}
                 href={`#${item}Star`}
-                fill="#FACC15"
+                fill={themeDark ? "#FACC15" : "#FFFBEB"}
               />
             </svg>
           </span>
