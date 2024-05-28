@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 interface Rating {
   rate: number;
+  themeDark: boolean;
 }
 
 export default function StarRate({ rate, themeDark }: { rate: Rating, themeDark: boolean }) {
