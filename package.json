@@ -17,10 +17,12 @@
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
     "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.19",
     "axios": "^1.4.0",
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "postcss": "^8.4.38",
     "prettier": "^2.8.3",
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
@@ -29,7 +31,8 @@
     "recoil": "^0.7.7",
     "styled-reset": "^4.4.7",
     "typescript": "^4.9.3",
-    "vite": "^4.1.1"
+    "vite": "^4.1.1",
+    "tailwindcss": "^3.0.0"
   },
   "stylelint": {
     "rules": {
