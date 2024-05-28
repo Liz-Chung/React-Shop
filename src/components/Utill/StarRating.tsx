@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
-interface Rating {
+interface StarRateProps {
   rate: number;
   themeDark: boolean;
 }
 
-export default function StarRate({ rate, themeDark }: { rate: Rating, themeDark: boolean }) {
-  const AVR_RATE = rate.rate * 20;
+export default function StarRate({ rate, themeDark }: StarRateProps) {
+  const AVR_RATE = rate * 20;
   const STAR_IDX_ARR = ['first', 'second', 'third', 'fourth', 'last'];
   const [ratesResArr, setRatesResArr] = useState([0, 0, 0, 0, 0]);
 

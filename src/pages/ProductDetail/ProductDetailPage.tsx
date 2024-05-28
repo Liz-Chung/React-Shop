@@ -87,7 +87,7 @@ export default function ProductDetailPage(props: CartProps): React.ReactElement 
               <p>{itemInfo.description}</p>
               <div className={styles.ratingContainer}>
                 <div>
-                  <StarRate rate={itemInfo.rating.rate} />
+                <StarRate rate={itemInfo.rating.rate} themeDark={themeDark} />
                 </div>
                 <div>
                   {itemInfo.rating.rate} / {itemInfo.rating.count} 참여
