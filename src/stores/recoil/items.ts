@@ -4,7 +4,6 @@ export interface Items {
   id: number;
   title: string;
   price: number;
-  formattedPrice: string;
   description: string;
   category: string;
   image: string;
@@ -28,17 +27,7 @@ export const itemList = selector<Items[]>({
   get: async () => {
     try {
       const response = await fetch(fakeAPI);
-      const items: Items[] = await response.json();
-      const formattedItems = items.map((item) => ({
-        ...item,
-        formattedPrice: item.price.toLocaleString('en-US', {
-          style: 'currency',
-          currency: 'USD',
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0,
-        }),
-      }));
-      return formattedItems;
+      return (await response.json()) || [];
     } catch (error) {
       console.log(`Error: \n${error}`);
       return [];
