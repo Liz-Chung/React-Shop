@@ -1,29 +1,26 @@
-import { useState, useEffect } from 'react';
-
-interface RatingProps {
-  rate: number;
-  count: number;
-}
+type TRatingProps = {
+  rate?: number;
+  count?: number;
+} & typeof defaultProps;
 
 const defaultProps = {
   rate: 0,
   count: 0,
 };
 
-const StarRate = ({ rate = 0, count = 0 }: RatingProps): JSX.Element => {
+const Rating = ({ rate, count }: TRatingProps): JSX.Element => {
   const stars = Array.from(Array(10));
-
   return (
     <div className="flex items-center mt-3">
       <div className="rating rating-half">
-        {stars.map((_, index) => {
+        {stars.map(($elm, index) => {
           return (
             <input
               type="radio"
               name="rating-10"
               key={`rating${index}`}
               className={`bg-yellow-400 cursor-default mask mask-star-2 ${
-                index % 2 === 0 ? "mask-half-1" : "mask-half-2"
+                index % 2 == 0 ? "mask-half-1" : "mask-half-2"
               }`}
               disabled
               checked={index + 1 <= rate * 2}
@@ -38,6 +35,6 @@ const StarRate = ({ rate = 0, count = 0 }: RatingProps): JSX.Element => {
   );
 };
 
-StarRate.defaultProps = defaultProps;
+Rating.defaultProps = defaultProps;
 
-export default StarRate;
+export default Rating;

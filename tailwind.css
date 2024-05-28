@@ -1,24 +1,27 @@
-/* Add this CSS to your Tailwind configuration or global CSS file */
-.mask {
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: cover;
-  mask-size: cover;
+@charset "utf-8";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
-.mask-star-2 {
-  -webkit-mask-image: url('path-to-your-star-image.svg');
-  mask-image: url('path-to-your-star-image.svg');
+.menu {
+  top: 112px;
 }
 
-.mask-half-1 {
-  -webkit-mask-image: linear-gradient(to right, black 50%, transparent 50%);
-  mask-image: linear-gradient(to right, black 50%, transparent 50%);
+.drawer-content {
+  max-height: initial !important;
+  min-height: -webkit-fill-available;
 }
 
-.mask-half-2 {
-  -webkit-mask-image: linear-gradient(to right, transparent 50%, black 50%);
-  mask-image: linear-gradient(to right, transparent 50%, black 50%);
+.drawer-toggle:checked + .drawer-content {
+  max-height: 100vh !important;
+}
+
+.js-searchedItem:active span {
+  color: white !important;
 }
