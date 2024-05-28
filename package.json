@@ -30,5 +30,21 @@
     "styled-reset": "^4.4.7",
     "typescript": "^4.9.3",
     "vite": "^4.1.1"
+  },
+  "stylelint": {
+    "rules": {
+      "at-rule-no-unknown": [
+        true,
+        {
+          "ignoreAtRules": [
+            "tailwind",
+            "apply",
+            "variants",
+            "responsive",
+            "screen"
+          ]
+        }
+      ]
+    }
   }
 }
