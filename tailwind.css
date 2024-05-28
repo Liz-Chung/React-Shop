@@ -1,0 +1,24 @@
+/* Add this CSS to your Tailwind configuration or global CSS file */
+.mask {
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.mask-star-2 {
+  -webkit-mask-image: url('path-to-your-star-image.svg');
+  mask-image: url('path-to-your-star-image.svg');
+}
+
+.mask-half-1 {
+  -webkit-mask-image: linear-gradient(to right, black 50%, transparent 50%);
+  mask-image: linear-gradient(to right, black 50%, transparent 50%);
+}
+
+.mask-half-2 {
+  -webkit-mask-image: linear-gradient(to right, transparent 50%, black 50%);
+  mask-image: linear-gradient(to right, transparent 50%, black 50%);
+}
