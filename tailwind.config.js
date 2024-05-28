@@ -1,6 +1,10 @@
-module.exports = {
+import { defineConfig } from 'vite-plugin-windicss';
+
+export default defineConfig({
   mode: "jit",
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  extract: {
+    include: ["index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  },
   darkMode: "class",
   theme: {
     screens: {
@@ -28,4 +32,4 @@ module.exports = {
     logs: true,
     rtl: false,
   },
-};
+});
