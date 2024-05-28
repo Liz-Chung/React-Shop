@@ -37,7 +37,7 @@ export default function StarRate({ rate, themeDark }: StarRateProps) {
               width="24"
               height="24"
               viewBox="0 0 14 13"
-              fill={themeDark ? "#FACC15" : "#FFFBEB"}
+              fill={themeDark ? "#544F34" : "#FEF3C7"}
             >
               <clipPath id={`${item}StarClip`}>
                 <rect width={`${ratesResArr[idx]}`} height="39" />
@@ -50,7 +50,7 @@ export default function StarRate({ rate, themeDark }: StarRateProps) {
               <use
                 clipPath={`url(#${item}StarClip)`}
                 href={`#${item}Star`}
-                fill={themeDark ? "#FACC15" : "#FFFBEB"}
+                fill="#FACC15"
               />
             </svg>
           </span>
